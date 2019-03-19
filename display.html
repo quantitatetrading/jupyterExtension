@@ -1,0 +1,77 @@
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/drag-panes.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<style>
+#button {
+  background-color: Grey;
+  width: 50px;
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  z-index: 100;
+}
+
+#container {
+  height: 50%;
+  width: 100%;
+  z-index: -1;
+  position: fixed;
+  bottom: -50%;
+  left:0;
+}
+</style>
+<div id = "button"></div>
+<div id="container"></div>
+<script>
+$('#button').on('click', function(){
+	if($(window).height() - $('#button').offset().top - $('#button').outerHeight(true) == 0){
+		$('#container').animate({ bottom: '0' });
+  	$('#button').animate({ bottom: '50%' });
+  } else {
+  	$('#container').animate({ bottom: '-50%' });
+  	$('#button').animate({ bottom: '0' });
+  }
+})
+
+$.getJSON('https://quantitate.trade/getData/MSFT&2000-01-01&2020-10-10', function (data) {
+
+    // create the chart
+    Highcharts.stockChart('container', {
+
+        rangeSelector: {
+            selected: 1
+        },
+
+        title: {
+            text: 'AAPL Historical'
+        },
+
+        yAxis: [{
+            labels: {
+                align: 'right',
+                x: -3
+            },
+            title: {
+                text: 'OHLC'
+            },
+            height: '60%',
+            lineWidth: 2,
+            resize: {
+                enabled: true
+            }
+        }],
+
+        tooltip: {
+            split: true
+        },
+
+        series: [{
+            type: 'candlestick',
+            name: 'AAPL',
+            data: data,
+        }]
+    });
+});
+</script>
