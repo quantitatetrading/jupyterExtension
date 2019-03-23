@@ -1,4 +1,6 @@
 import os
 import notebook
 
-os.popen('cp custom.css', os.path.join(os.path.dirname(notebook.__file__), 'static/custom/custom.css'))
+location = os.path.dirname(os.path.realpath(__file__))
+notebookPath = os.path.dirname(notebook.__file__)
+os.popen('cp %s/custom.css %s/static/custom/custom.css' % (location, notebookPath))
