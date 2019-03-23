@@ -1,0 +1,51 @@
+
+/*
+Placeholder for custom user CSS
+
+mainly to be overridden in profile/static/custom/custom.css
+
+This will always be an empty file in IPython
+*/
+
+/*for the error , connecting & renaming window*/
+
+[dir="rtl"] .modal-footer {
+	text-align : left !important;
+}
+
+[dir="rtl"] .close {
+	float : left;
+}
+
+[dir="rtl"] .fa-step-forward::before {
+    content: "\f048";
+}
+
+body {
+  background-color: white !important;
+  /* background-image: url('https://quantitate.trade/images/poly.png') !important; */
+  background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#notebook-container{
+  width: 90vw !important;
+  /* border: 1px solid #007BC7; */
+}
+
+#header {
+  background-color: #007BC7 !important;
+  padding: 10px 10px 10px 5%;
+}
+
+#header-container, #menus, .header-bar{
+  display:none !important;
+}
+
+#menubar-container {
+  margin: 0 !important;
+}
+
+.btn, .form-control {
+	border:none;
+}
