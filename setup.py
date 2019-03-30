@@ -2,7 +2,9 @@ import os
 import notebook
 
 location = os.path.dirname(os.path.realpath(__file__))
-notebookPath = os.path.dirname(notebook.__file__)
-print(location, notebookPath, 'cp %s/custom.css %s/static/custom/custom.css' % (location, notebookPath))
+packageDir = site.getsitepackages()[0]
+notebookPath = os.path.join(packageDir, 'notebook')
+
 os.popen('cp %s/custom.css %s/static/custom/custom.css' % (location, notebookPath))
 os.system('jupyter nbextension enable jupyterExtension/main')
+os.system('git clone https://github.com/quantitatetrading/trader ' + location)
