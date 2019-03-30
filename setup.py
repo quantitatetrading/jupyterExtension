@@ -1,5 +1,6 @@
 import os
 import notebook
+import site
 
 location = os.path.dirname(os.path.realpath(__file__))
 packageDir = site.getsitepackages()[0]
