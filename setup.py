@@ -8,4 +8,4 @@ notebookPath = os.path.join(packageDir, 'notebook')
 
 os.popen('cp %s/custom.css %s/static/custom/custom.css' % (location, notebookPath))
 os.system('jupyter nbextension enable jupyterExtension/main')
-os.system('git clone https://github.com/quantitatetrading/trader ' + location)
+os.system('git clone https://github.com/quantitatetrading/trader ' + packageDir)
